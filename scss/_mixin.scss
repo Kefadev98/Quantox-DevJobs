@@ -1,0 +1,78 @@
+@mixin filters {
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    border-left: 1px solid $secondary-dark-grey;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin inputs {
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+}
+
+@mixin primary-button {
+    width: 115px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    color: $secondary-white;
+    background-color: $primary-violet;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+@mixin secondary-button {
+    width: 115px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    color: $primary-violet;
+    background-color: $secondary-light-grey;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+//Index.html resposnive
+
+@mixin media-md {
+    @media screen and (max-width:1200px) and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin media-small {
+    @media screen and (max-width: 767px) and (min-width: 400px) {
+        @content;
+    }
+}
+
+@mixin media-very-small {
+    @media (max-width: 400px) {
+        @content;
+    }
+}
+
+@mixin about-md {
+    @media screen and (max-width:1200px) and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin about-small {
+    @media screen and (max-width: 767px) and (min-width: 400px) {
+        @content;
+    }
+}
+
+@mixin about-very-small {
+    @media (max-width: 400px) {
+        @content;
+    }
+}

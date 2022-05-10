@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;500&display=swap');
+
+@import 'variables';
+@import 'mixin';
+@import 'responsive';
+
+body {
+    background-color: $secondary-light-grey;
+    font-family: 'Kumbh Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    header {
+        position: relative;
+        width: 100%;
+        height: 120px;
+        background-color: $primary-violet;
+        border-bottom-left-radius: 85px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    
+        .header-container {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transform: translateY(20px);
+    
+            .logo {
+                font-size: 2.2rem;
+                font-weight: 700;
+                color: $secondary-white;
+                cursor: pointer;
+            }
+            .theme-switch {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 110px;
+
+                .checkbox {
+                    opacity: 0;
+                    position: absolute;
+
+                    &:checked + .label .ball {
+                        transform: translateX(24px);
+                    }
+                }
+
+                .label {
+                    background-color: $secondary-white;
+                    border-radius: 35px;
+                    width: 55px;
+                    height: 23px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+
+                    .ball {
+                        width: 18px;
+                        height: 18px;
+                        border-radius: 50%;
+                        margin: 2px 6px;
+                        background-color: $primary-violet;
+                        position: absolute;
+                        transition: transform 0.2s linear;
+                    }
+                }
+            }
+        }
+        .search-container {
+            width: 80%;
+            height: 70px;
+            background-color: $secondary-white;
+            border-radius: .4rem;
+            transform: translateY(55px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+    
+            .search-section {
+                @include filters;
+                width: 40%;
+                border-left: none;
+    
+                input {
+                    @include inputs;
+                    width: 88%;
+                }
+            }
+    
+            .location-section {
+                @include filters;
+                width: 25%;
+                
+                input {
+                    @include inputs;
+                    width: 85%;
+                }
+            }
+    
+            .full-time-section {
+                @include filters;
+                color: $primary-midnight;
+                font-size: 1rem;
+                font-weight: 600;
+                width: 26%;
+
+                img {
+                    display: none;
+                }
+    
+                input {
+                    cursor: pointer;
+                    width: 20px;
+                    height: 20px;
+                    transform: translateY(2px);
+                }
+    
+                span {
+                    padding-left: 5px;
+                }
+    
+                .filter-button {
+                    display: none;
+                }
+    
+                .search-btn {
+                    @include primary-button;
+    
+                    &:hover {
+                        background-color: $primary-light-violet;
+                    }
+                }
+            }
+        }
+    }
+
+    main {
+        width: 80%;
+        margin-top: 65px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .card {
+            width: 400px;
+            height: 275px;
+            position: relative;
+            background-color: $secondary-white;
+            border-radius: 1rem;
+            margin-top: 60px;
+
+            .job-logo {
+                width: 55px;
+                height: 55px;
+                border-radius: 1rem;
+                transform: translate(20px, -20px);
+            }
+            p {
+                color: $secondary-dark-grey;
+                margin-left: 25px;
+            }
+            a {
+                text-decoration: none;
+            }
+            
+            h4 {
+                color: $primary-midnight;
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-left: 25px;
+                transition: color 300ms;
+                padding: 20px 0 30px 0;
+
+                &:hover {
+                    color: $secondary-dark-grey;
+                    cursor: pointer;
+                }
+            }
+            
+            small {
+                color: $primary-violet;
+                font-weight: 600;
+                position: absolute;
+                bottom: 40px;
+                margin-left: 25px;
+            }
+        }
+    }
+    .modal {
+        display: none;
+    }
+    .modal-visibility {
+        display: block;
+    }
+    .shader {
+        visibility: hidden;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .shader-visibility {
+        visibility: visible;
+    }
+    .shade {
+        visibility: hidden;
+    }
+}
+
+//DARK MODE
+
+.dark-theme {
+    background-color: $primary-midnight;
+    color: $secondary-white;
+
+    .card {
+        background-color: $primary-dark-blue;
+        
+        h4 {
+            color: $secondary-white;
+        }
+    }
+    .search-container {
+        background-color: $primary-dark-blue;
+        
+
+        input {
+            background-color: $primary-dark-blue;
+            color: $secondary-white;
+        }
+        p {
+            color: $secondary-white;
+        }
+    }
+
+    .modal {
+        .popup {
+            background-color: $primary-dark-blue;
+            color: $secondary-white;
+    
+            input {
+                background-color: $primary-dark-blue;
+                color: $secondary-white;
+            }
+        }
+    }
+}
+
